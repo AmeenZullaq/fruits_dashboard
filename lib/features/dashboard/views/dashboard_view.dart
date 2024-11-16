@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:fruits_dashboard/features/dashboard/app_button.dart';
+import 'package:fruits_dashboard/core/utils/app_routes.dart';
+import 'package:fruits_dashboard/core/widgets/app_button.dart';
 
 class DashboardView extends StatelessWidget {
   const DashboardView({super.key});
@@ -15,7 +16,9 @@ class DashboardView extends StatelessWidget {
           children: [
             AppButton(
               text: 'Add',
-              onTap: () {},
+              onTap: () {
+                Navigator.pushNamed(context, AppRoutes.addProductView);
+              },
             ),
           ],
         ),
