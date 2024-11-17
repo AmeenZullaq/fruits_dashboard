@@ -8,7 +8,7 @@ import 'package:skeletonizer/skeletonizer.dart';
 class ImageField extends StatefulWidget {
   const ImageField({super.key, required this.onFileChanged});
 
-  final ValueChanged<File?> onFileChanged;
+  final Function(File? image) onFileChanged;
 
   @override
   State<ImageField> createState() => _ImageFieldState();
@@ -24,7 +24,6 @@ class _ImageFieldState extends State<ImageField> {
       child: InkWell(
         onTap: () async {
           isLoading = true;
-          setState(() {});
           pickedImage = await pickImage();
           widget.onFileChanged(pickedImage);
           isLoading = false;

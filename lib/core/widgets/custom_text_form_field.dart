@@ -9,7 +9,7 @@ class CustomTextFormField extends StatelessWidget {
     required this.hintText,
     this.suffixIcon,
     this.keyboardType,
-    required this.controller,
+    this.controller,
     this.validator,
     this.obscureText = false,
     this.contentPadding,
@@ -18,11 +18,13 @@ class CustomTextFormField extends StatelessWidget {
     this.widthBorderSide,
     this.focusNode,
     this.maxLines = 1,
+    this.onSaved,
+    this.autovalidateMode,
   });
   final String hintText;
   final Widget? suffixIcon;
   final TextInputType? keyboardType;
-  final TextEditingController controller;
+  final TextEditingController? controller;
   final String? Function(String?)? validator;
   final bool? obscureText;
   final EdgeInsetsGeometry? contentPadding;
@@ -31,10 +33,14 @@ class CustomTextFormField extends StatelessWidget {
   final double? widthBorderSide;
   final FocusNode? focusNode;
   final int? maxLines;
+  final void Function(String?)? onSaved;
+  final AutovalidateMode? autovalidateMode;
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      autovalidateMode: autovalidateMode,
+      onSaved: onSaved,
       focusNode: focusNode,
       obscureText: obscureText!,
       validator: validator,
