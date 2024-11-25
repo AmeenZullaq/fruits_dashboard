@@ -3,9 +3,11 @@ import 'package:fruits_dashboard/core/utils/app__text_styles.dart';
 import 'package:fruits_dashboard/core/widgets/custom_check_box.dart';
 
 class IsFeaturedCheckBox extends StatelessWidget {
-  const IsFeaturedCheckBox({super.key, required this.onChange});
+  const IsFeaturedCheckBox(
+      {super.key, required this.onChange, required this.text});
 
   final ValueChanged onChange;
+  final String text;
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +17,7 @@ class IsFeaturedCheckBox extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text(
-              'Is faetured product',
+              text,
               style: AppTextStyles.regular16,
             ),
             CustomCheckBox(

@@ -1,4 +1,4 @@
 abstract class Endpoints {
-  static const product = 'product';
+  static const products = 'products';
   static const images = 'images';
 }

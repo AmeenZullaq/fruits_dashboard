@@ -45,6 +45,7 @@ class _ImageFieldState extends State<ImageField> {
                   : Icon(
                       Icons.image_outlined,
                       size: 180.sp,
+                      color: AppColors.green1_500,
                     ),
             ),
             Visibility(

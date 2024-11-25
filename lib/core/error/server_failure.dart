@@ -16,7 +16,7 @@ class ServerFailure extends Failure {
         );
       case 'unavailable':
         return ServerFailure(
-          errMessage: 'service unavailable',
+          errMessage: 'service unavailable. Check your internet connection.',
         );
       case 'cancelled':
         return ServerFailure(
@@ -24,11 +24,15 @@ class ServerFailure extends Failure {
         );
       case 'deadline-exceeded':
         return ServerFailure(
-          errMessage: 'deadline exceeded',
+          errMessage: 'deadline exceeded. Possible network issue.',
+        );
+      case 'network-request-failed':
+        return ServerFailure(
+          errMessage: 'Network error: Please check your internet connection.',
         );
       default:
         return ServerFailure(
-          errMessage: 'Ane rroro ccurredP leaset rya gainl ater',
+          errMessage: 'An error occurred. Please try again later.',
         );
     }
   }
@@ -55,12 +59,18 @@ class ServerFailure extends Failure {
         return ServerFailure(
           errMessage: 'unknown error occurred',
         );
+      case 'retry-limit-exceeded':
+        return ServerFailure(
+          errMessage: 'Retry limit exceeded. Check your internet connection.',
+        );
+      case 'network-request-failed':
+        return ServerFailure(
+          errMessage: 'Network error: Please check your internet connection.',
+        );
       default:
         return ServerFailure(
-          errMessage: 'Ane rroro ccurredP leaset rya gainl ater',
+          errMessage: 'An error occurred. Please try again later.',
         );
     }
   }
-                
-
-  }
+}

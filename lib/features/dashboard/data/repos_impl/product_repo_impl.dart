@@ -1,3 +1,4 @@
+import 'dart:developer';
 import 'dart:io';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dartz/dartz.dart';
@@ -6,11 +7,12 @@ import 'package:fruits_dashboard/core/error/server_failure.dart';
 import 'package:fruits_dashboard/core/services/database_service.dart';
 import 'package:fruits_dashboard/core/services/storage_service.dart';
 import 'package:fruits_dashboard/core/utils/endoints.dart';
+import 'package:fruits_dashboard/features/dashboard/data/models/product_model.dart';
 import 'package:fruits_dashboard/features/dashboard/domain/entitis/product_entity.dart';
 import 'package:fruits_dashboard/features/dashboard/domain/repos/product_repo.dart';
 
 class ProductRepoImpl extends ProductRepo {
-  final DatabaseService databaseService;
+  final DatabaseService databaseService; 
   final StorageService storageService;
 
   ProductRepoImpl({
@@ -18,22 +20,15 @@ class ProductRepoImpl extends ProductRepo {
     required this.databaseService,
   });
   @override
-  Future<Either<Failure, Unit>> addProduct({
+  Future<Either<Failure, void>> addProduct({
     required ProductEntity product,
   }) async {
     try {
       databaseService.addData(
-        path: Endpoints.product,
-        data: {
-          'name': product.name,
-          'code': product.code,
-          'price': product.price,
-          'description': product.description,
-          'isFeatured': product.isFeatured,
-          'image': product.image,
-        },
+        path: Endpoints.products,
+        data: ProductModel.fromEntity(product).toJson(),
       );
-      return right(unit);
+      return right(null);
     } catch (e) {
       if (e is FirebaseException) {
         return left(
@@ -41,14 +36,17 @@ class ProductRepoImpl extends ProductRepo {
         );
       }
       return left(
-        ServerFailure(errMessage: 'Opps, There was an error'),
+        ServerFailure(
+          errMessage: 'Failed to add product',
+        ),
       );
     }
   }
 
   @override
-  Future<Either<Failure, String>> uploadFile(
-      {required File file, required String path}) async {
+  Future<Either<Failure, String>> uploadFile({
+    required File file,
+  }) async {
     try {
       String imageUrl = await storageService.uploadFile(
         file: file,
@@ -56,13 +54,11 @@ class ProductRepoImpl extends ProductRepo {
       );
       return right(imageUrl);
     } catch (e) {
-      if (e is FirebaseException) {
-        return left(
-          ServerFailure.fromFirebaseStorage(e),
-        );
-      }
+      log(e.toString());
       return left(
-        ServerFailure(errMessage: 'Faild to upload image'),
+        ServerFailure(
+          errMessage: 'Failed to upload image',
+        ),
       );
     }
   }
