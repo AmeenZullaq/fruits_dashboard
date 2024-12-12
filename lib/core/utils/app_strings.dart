@@ -1,3 +1,3 @@
 abstract class AppStrings {
-  static const String bucketName = "uploaded_files";
+  static const String fruitImages = "fruits_images";
 }

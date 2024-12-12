@@ -4,8 +4,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fruits_dashboard/core/helper_function/on_generate_route.dart';
+import 'package:fruits_dashboard/core/services/supabase_storage_service.dart';
 import 'package:fruits_dashboard/core/utils/app_colors.dart';
 import 'package:fruits_dashboard/core/utils/app_routes.dart';
+import 'package:fruits_dashboard/core/utils/app_strings.dart';
 import 'package:fruits_dashboard/features/dashboard/presentation/cubits/add_product_cubit/add_product_cubit.dart';
 import 'package:fruits_dashboard/firebase_options.dart';
 import 'package:fruits_dashboard/injection_container.dart';
@@ -21,6 +23,7 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+  await SupabaseStorageService.createBucket(bucketName: AppStrings.fruitImages,);
   InjectionContainer.initAppDependencies();
   runApp(const MyApp());
 }
@@ -61,4 +64,4 @@ class MyApp extends StatelessWidget {
       },
     );
   }
-}
+ }

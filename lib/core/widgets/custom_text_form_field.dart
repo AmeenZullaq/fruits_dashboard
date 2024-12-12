@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:fruits_dashboard/core/utils/app__text_styles.dart';
+import 'package:fruits_dashboard/core/utils/app_text_styles.dart';
 import 'package:fruits_dashboard/core/utils/app_colors.dart';
 
 class CustomTextFormField extends StatelessWidget {

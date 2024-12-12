@@ -15,18 +15,23 @@ abstract class InjectionContainer {
   }
 
   static Future<void> initAddProductDependencies() async {
+    /// Data source
     getIt.registerLazySingleton<DatabaseService>(
       () => FirestoreService(),
     );
     getIt.registerLazySingleton<StorageService>(
       () => SupabaseStorageService(),
     );
+
+    /// Repos
     getIt.registerLazySingleton<ProductRepo>(
       () => ProductRepoImpl(
         storageService: getIt.get<StorageService>(),
         databaseService: getIt.get<DatabaseService>(),
       ),
     );
+
+    /// Cubits
     getIt.registerLazySingleton<AddProductCubit>(
       () => AddProductCubit(
         productRepo: getIt.get<ProductRepo>(),

@@ -25,7 +25,7 @@ abstract class AppValidators {
     if (userName == null || userName.isEmpty) {
       return text;
     }
-    if (userName.length < 3) {
+    if (userName.isEmpty) {
       return 'UserName must be at least 3 characturs';
     }
     return null;

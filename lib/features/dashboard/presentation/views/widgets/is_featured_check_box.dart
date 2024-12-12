@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:fruits_dashboard/core/utils/app__text_styles.dart';
+import 'package:fruits_dashboard/core/utils/app_text_styles.dart';
 import 'package:fruits_dashboard/core/widgets/custom_check_box.dart';
 
 class IsFeaturedCheckBox extends StatelessWidget {
