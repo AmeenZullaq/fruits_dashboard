@@ -1,4 +1,4 @@
-import 'package:fruits_dashboard/features/dashboard/domain/entitis/review_entity.dart';
+import 'package:fruits_dashboard/features/add_product/domain/entitis/review_entity.dart';
 
 class ProductEntity {
   final String name;
@@ -13,7 +13,7 @@ class ProductEntity {
   final int unitWeight;
   final num avgRating;
   final int numberOfRating;
-  final List<ReviewEntity> reviews;
+  final List<ReviewEntity>? reviews;
 
   ProductEntity({
     required this.avgRating,

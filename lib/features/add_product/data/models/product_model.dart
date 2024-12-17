@@ -1,5 +1,5 @@
-import 'package:fruits_dashboard/features/dashboard/data/models/review_model.dart';
-import 'package:fruits_dashboard/features/dashboard/domain/entitis/product_entity.dart';
+import 'package:fruits_dashboard/features/add_product/data/models/review_model.dart';
+import 'package:fruits_dashboard/features/add_product/domain/entitis/product_entity.dart';
 
 class ProductModel {
   final String name;
@@ -15,7 +15,7 @@ class ProductModel {
   final num avgRating;
   final int numberOfRating;
   final int sellingCount;
-  final List<ReviewModel> reviews;
+  final List<ReviewModel>? reviews;
 
   ProductModel({
     this.sellingCount = 0,
@@ -48,7 +48,7 @@ class ProductModel {
       isFeatured: product.isFeatured,
       avgRating: product.avgRating,
       numberOfRating: product.numberOfRating,
-      reviews: product.reviews.map((e) => ReviewModel.fromEntity(e)).toList(),
+      reviews: product.reviews?.map((e) => ReviewModel.fromEntity(e)).toList(),
     );
   }
 

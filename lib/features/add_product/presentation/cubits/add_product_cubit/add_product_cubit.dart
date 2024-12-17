@@ -1,8 +1,8 @@
 import 'dart:io';
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
-import 'package:fruits_dashboard/features/dashboard/domain/entitis/product_entity.dart';
-import 'package:fruits_dashboard/features/dashboard/domain/repos/product_repo.dart';
+import 'package:fruits_dashboard/features/add_product/domain/entitis/product_entity.dart';
+import 'package:fruits_dashboard/features/add_product/domain/repos/product_repo.dart';
 part 'add_product_state.dart';
 
 class AddProductCubit extends Cubit<AddProductState> {
@@ -22,7 +22,9 @@ class AddProductCubit extends Cubit<AddProductState> {
   String? imageUrl;
 
   Future<void> addProduct() async {
-    emit(AddProductLoading());
+    emit(
+      AddProductLoading(),
+    );
     var resulte = await productRepo.uploadFile(file: selectedImage!);
     resulte.fold(
       (failure) {
@@ -46,7 +48,7 @@ class AddProductCubit extends Cubit<AddProductState> {
             isFeatured: isFeatired,
             avgRating: avgRating,
             numberOfRating: numberOfRating,
-            reviews: [],
+            reviews: null,
           ),
         );
         resulte.fold(

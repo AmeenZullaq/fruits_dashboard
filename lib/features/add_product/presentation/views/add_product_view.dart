@@ -6,9 +6,9 @@ import 'package:fruits_dashboard/core/services/app_validators.dart';
 import 'package:fruits_dashboard/core/widgets/app_button.dart';
 import 'package:fruits_dashboard/core/widgets/custom_circle_indicator.dart';
 import 'package:fruits_dashboard/core/widgets/custom_text_form_field.dart';
-import 'package:fruits_dashboard/features/dashboard/presentation/cubits/add_product_cubit/add_product_cubit.dart';
-import 'package:fruits_dashboard/features/dashboard/presentation/views/widgets/image_field.dart';
-import 'package:fruits_dashboard/features/dashboard/presentation/views/widgets/is_featured_check_box.dart';
+import 'package:fruits_dashboard/features/add_product/presentation/cubits/add_product_cubit/add_product_cubit.dart';
+import 'package:fruits_dashboard/features/add_product/presentation/views/widgets/image_field.dart';
+import 'package:fruits_dashboard/features/add_product/presentation/views/widgets/is_featured_check_box.dart';
 
 class AddProductView extends StatefulWidget {
   const AddProductView({super.key});

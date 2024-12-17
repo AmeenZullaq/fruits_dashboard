@@ -2,7 +2,7 @@ import 'dart:io';
 
 import 'package:dartz/dartz.dart';
 import 'package:fruits_dashboard/core/error/failure.dart';
-import 'package:fruits_dashboard/features/dashboard/domain/entitis/product_entity.dart';
+import 'package:fruits_dashboard/features/add_product/domain/entitis/product_entity.dart';
 
 abstract class ProductRepo {
   Future<Either<Failure, void>> addProduct({

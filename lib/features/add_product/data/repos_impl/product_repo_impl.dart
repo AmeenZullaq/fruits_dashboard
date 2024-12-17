@@ -7,9 +7,9 @@ import 'package:fruits_dashboard/core/error/server_failure.dart';
 import 'package:fruits_dashboard/core/services/database_service.dart';
 import 'package:fruits_dashboard/core/services/storage_service.dart';
 import 'package:fruits_dashboard/core/utils/endoints.dart';
-import 'package:fruits_dashboard/features/dashboard/data/models/product_model.dart';
-import 'package:fruits_dashboard/features/dashboard/domain/entitis/product_entity.dart';
-import 'package:fruits_dashboard/features/dashboard/domain/repos/product_repo.dart';
+import 'package:fruits_dashboard/features/add_product/data/models/product_model.dart';
+import 'package:fruits_dashboard/features/add_product/domain/entitis/product_entity.dart';
+import 'package:fruits_dashboard/features/add_product/domain/repos/product_repo.dart';
 
 class ProductRepoImpl extends ProductRepo {
   final DatabaseService databaseService; 

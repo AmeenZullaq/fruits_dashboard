@@ -8,7 +8,7 @@ import 'package:fruits_dashboard/core/services/supabase_storage_service.dart';
 import 'package:fruits_dashboard/core/utils/app_colors.dart';
 import 'package:fruits_dashboard/core/utils/app_routes.dart';
 import 'package:fruits_dashboard/core/utils/app_strings.dart';
-import 'package:fruits_dashboard/features/dashboard/presentation/cubits/add_product_cubit/add_product_cubit.dart';
+import 'package:fruits_dashboard/features/add_product/presentation/cubits/add_product_cubit/add_product_cubit.dart';
 import 'package:fruits_dashboard/firebase_options.dart';
 import 'package:fruits_dashboard/injection_container.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';

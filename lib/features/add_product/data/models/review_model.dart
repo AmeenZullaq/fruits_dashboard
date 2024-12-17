@@ -1,4 +1,4 @@
-import 'package:fruits_dashboard/features/dashboard/domain/entitis/review_entity.dart';
+import 'package:fruits_dashboard/features/add_product/domain/entitis/review_entity.dart';
 
 class ReviewModel {
   final String image;
