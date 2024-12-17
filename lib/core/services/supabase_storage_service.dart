@@ -36,7 +36,7 @@ class SupabaseStorageService extends StorageService {
     // get the extension of the file, like png.
     String extensionName = extension(file.path);
     // file path
-    String filePath = '$path/$fileName.$extensionName';
+    String filePath = '$path/$fileName/$extensionName';
     // Upload the file to the specified bucket and path
     await supabaseStorage.from(AppStrings.fruitImages).upload(filePath, file);
     // Generate a public URL for the uploaded file
