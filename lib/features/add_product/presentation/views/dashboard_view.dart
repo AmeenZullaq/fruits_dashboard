@@ -15,9 +15,18 @@ class DashboardView extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             AppButton(
-              text: 'Add',
+              text: 'Add Data',
               onTap: () {
                 Navigator.pushNamed(context, AppRoutes.addProductView);
+              },
+            ),
+            SizedBox(
+              height: 30.h,
+            ),
+            AppButton(
+              text: 'Get Orders',
+              onTap: () {
+                Navigator.pushNamed(context, AppRoutes.ordersView);
               },
             ),
           ],
