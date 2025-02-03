@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:fruits_dashboard/features/orders/presentation/data/models/order_model.dart';
+import 'package:fruits_dashboard/features/orders/domain/entities/order_entity/order_entity.dart';
 
 class OrderCard extends StatelessWidget {
-  final OrderModel order;
+  final OrderEntity order;
 
   const OrderCard({
     super.key,
@@ -54,21 +54,21 @@ class OrderCard extends StatelessWidget {
             ),
             const SizedBox(height: 6),
             Text(
-              "${order.shippingAddressModel.name}, ${order.shippingAddressModel.address}, ${order.shippingAddressModel.city} (Floor: ${order.shippingAddressModel.floorNumber})",
+              "${order.shippingAddressEntity.name}, ${order.shippingAddressEntity.address}, ${order.shippingAddressEntity.city} (Floor: ${order.shippingAddressEntity.floorNumber})",
               style: const TextStyle(
                 fontSize: 14,
                 color: Colors.grey,
               ),
             ),
             Text(
-              "Email: ${order.shippingAddressModel.email}",
+              "Email: ${order.shippingAddressEntity.email}",
               style: const TextStyle(
                 fontSize: 14,
                 color: Colors.grey,
               ),
             ),
             Text(
-              "Phone: ${order.shippingAddressModel.phoneNumber}",
+              "Phone: ${order.shippingAddressEntity.phoneNumber}",
               style: const TextStyle(
                 fontSize: 14,
                 color: Colors.grey,
@@ -76,7 +76,7 @@ class OrderCard extends StatelessWidget {
             ),
             const SizedBox(height: 12),
             Text(
-              "Products (${order.orderProductModel.length}):",
+              "Products (${order.orderProductEntity.length}):",
               style: const TextStyle(
                 fontSize: 16,
                 fontWeight: FontWeight.bold,
@@ -87,9 +87,9 @@ class OrderCard extends StatelessWidget {
             ListView.builder(
               shrinkWrap: true,
               physics: const NeverScrollableScrollPhysics(),
-              itemCount: order.orderProductModel.length,
+              itemCount: order.orderProductEntity.length,
               itemBuilder: (context, index) {
-                final product = order.orderProductModel[index];
+                final product = order.orderProductEntity[index];
                 return Padding(
                   padding: const EdgeInsets.symmetric(vertical: 6.0),
                   child: Row(

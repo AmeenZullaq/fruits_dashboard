@@ -1,21 +1,21 @@
-import 'package:fruits_dashboard/features/orders/presentation/data/models/order_model.dart';
-import 'package:fruits_dashboard/features/orders/presentation/data/models/order_product_model.dart';
-import 'package:fruits_dashboard/features/orders/presentation/data/models/shipping_address_model.dart';
+import 'package:fruits_dashboard/features/orders/domain/entities/order_entity/order_entity.dart';
+import 'package:fruits_dashboard/features/orders/domain/entities/order_entity/order_product_entity.dart';
+import 'package:fruits_dashboard/features/orders/domain/entities/order_entity/shipping_address_entity.dart';
 
 /// Method to return a single dummy OrderModel object
-OrderModel getDummyOrder() {
-  return OrderModel(
+OrderEntity getDummyOrder() {
+  return OrderEntity(
     uId: "12345",
     priceOffAllProducts: 20.00,
-    orderProductModel: [
-      OrderProductModel(
+    orderProductEntity: [
+      OrderProductEntity(
         code: "APL001",
         name: "Apple",
         imageUrl: "https://via.placeholder.com/50",
         price: 3.50,
         quantity: 2,
       ),
-      OrderProductModel(
+      OrderProductEntity(
         code: "BNN002",
         name: "Banana",
         imageUrl: "https://via.placeholder.com/50",
@@ -23,7 +23,7 @@ OrderModel getDummyOrder() {
         quantity: 5,
       ),
     ],
-    shippingAddressModel: ShippingAddressModel(
+    shippingAddressEntity: ShippingAddressEntity(
       name: "John Doe",
       email: "john.doe@example.com",
       address: "123 Main Street",

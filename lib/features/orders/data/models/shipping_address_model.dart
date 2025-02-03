@@ -1,3 +1,5 @@
+import 'package:fruits_dashboard/features/orders/domain/entities/order_entity/shipping_address_entity.dart';
+
 class ShippingAddressModel {
   final String name;
   final String email;
@@ -26,14 +28,14 @@ class ShippingAddressModel {
     );
   }
 
-  toJson() {
-    return {
-      'name': name,
-      'email': email,
-      'address': address,
-      'city': city,
-      'floorNumber': floorNumber,
-      'phoneNumber': phoneNumber,
-    };
+  toEntity() {
+    return ShippingAddressEntity(
+      name: name,
+      email: email,
+      address: address,
+      city: city,
+      floorNumber: floorNumber,
+      phoneNumber: phoneNumber,
+    );
   }
 }

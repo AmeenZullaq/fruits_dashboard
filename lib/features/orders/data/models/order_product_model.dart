@@ -1,3 +1,4 @@
+import 'package:fruits_dashboard/features/orders/domain/entities/order_entity/order_product_entity.dart';
 
 class OrderProductModel {
   final String code;
@@ -14,7 +15,6 @@ class OrderProductModel {
     required this.quantity,
   });
 
-
   factory OrderProductModel.fromJson(Map<String, dynamic> json) {
     return OrderProductModel(
       code: json['code'],
@@ -25,13 +25,13 @@ class OrderProductModel {
     );
   }
 
-  toJson() {
-    return {
-      'code': code,
-      'name': name,
-      'imageUrl': imageUrl,
-      'price': price,
-      'quantity': quantity,
-    };
+  OrderProductEntity toEntity() {
+    return OrderProductEntity(
+      code: code,
+      name: name,
+      imageUrl: imageUrl,
+      price: price,
+      quantity: quantity,
+    );
   }
 }
